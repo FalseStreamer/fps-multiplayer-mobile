@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="weapon_res" format=3 uid="uid://cf22cfgqhpgm2"]
+
+[ext_resource type="PackedScene" uid="uid://d1euh2ogc0v8p" path="res://scsnes/objects/guns/1911.tscn" id="1_8gjvv"]
+[ext_resource type="Script" uid="uid://01pnncniv4j5" path="res://resourses/weapons_data/weapon_res.gd" id="2_7ffyi"]
+
+[resource]
+script = ExtResource("2_7ffyi")
+weapon_name = "1911"
+weapon_id = 2
+type = 4
+slot = 1
+model = ExtResource("1_8gjvv")
+reload_ani = "reload"
+wea_up = "weapon up"
+damage = 60
+armour_pen = 20
+fire_rate = 1.6
+cost = 200
+max_ammo = 60
+mag = 5
+capacity = 12
+reload_time = 2.5
+metadata/_custom_type_script = "uid://01pnncniv4j5"

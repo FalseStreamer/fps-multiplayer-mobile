@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://lvsooleomsdt"]
+
+[ext_resource type="Script" uid="uid://df3qvk16qr0y8" path="res://script/player.gd" id="1_y8oh1"]
+[ext_resource type="Script" uid="uid://dguilt4nhpx4e" path="res://script/joystick.gd" id="2_5rx0o"]
+[ext_resource type="Texture2D" uid="uid://dpvhd1am3vepf" path="res://assets/Untitled2_20260901093308.png" id="2_uc8cr"]
+[ext_resource type="Texture2D" uid="uid://ckyw2gakkp04y" path="res://assets/20260902_092356.png" id="3_5rx0o"]
+[ext_resource type="Script" uid="uid://bu2msr5de12pa" path="res://script/match_ui.gd" id="5_2vdee"]
+[ext_resource type="Script" uid="uid://t4ia7b22bdl7" path="res://script/health_armourlable.gd" id="6_yeyt3"]
+[ext_resource type="Script" uid="uid://dqadjbnnp6ybr" path="res://script/ammo.gd" id="7_8cw60"]
+[ext_resource type="Script" uid="uid://dwybxphvecmgu" path="res://script/weapon_manager.gd" id="7_sgg3w"]
+[ext_resource type="Script" uid="uid://01pnncniv4j5" path="res://resourses/weapons_data/weapon_res.gd" id="8_8tlpu"]
+[ext_resource type="Resource" uid="uid://b4o5sh03sjkvl" path="res://data/gun_data/m4a1.tres" id="9_t0ayd"]
+[ext_resource type="Resource" uid="uid://b1jbywg6tfen1" path="res://data/gun_data/ak.tres" id="10_8cw60"]
+[ext_resource type="Resource" uid="uid://cf22cfgqhpgm2" path="res://data/gun_data/1911pistol.tres" id="11_oqvtb"]
+[ext_resource type="Script" uid="uid://cojpwe4ntqi0u" path="res://script/raycast_holder.gd" id="13_oqvtb"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g7b7a"]
+
+[node name="player" type="Node3D" unique_id=320086141]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=698018310]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_y8oh1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1327928751]
+shape = SubResource("CapsuleShape3D_g7b7a")
+
+[node name="pivot" type="Node3D" parent="CharacterBody3D" unique_id=828369493]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/pivot" unique_id=800943755]
+unique_name_in_owner = true
+
+[node name="control_ui" type="CanvasLayer" parent="CharacterBody3D/pivot/Camera3D" unique_id=29193122]
+unique_name_in_owner = true
+
+[node name="joystick" type="Control" parent="CharacterBody3D/pivot/Camera3D/control_ui" unique_id=1936758972]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+script = ExtResource("2_5rx0o")
+metadata/_edit_use_anchors_ = true
+
+[node name="base" type="Sprite2D" parent="CharacterBody3D/pivot/Camera3D/control_ui/joystick" unique_id=315359176]
+position = Vector2(130, 524)
+texture = ExtResource("2_uc8cr")
+
+[node name="knob" type="Sprite2D" parent="CharacterBody3D/pivot/Camera3D/control_ui/joystick/base" unique_id=1111665279]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_5rx0o")
+
+[node name="match_ui" type="Control" parent="CharacterBody3D/pivot/Camera3D" unique_id=290363174]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+script = ExtResource("5_2vdee")
+
+[node name="health" type="Label" parent="CharacterBody3D/pivot/Camera3D/match_ui" unique_id=1725778951]
+layout_mode = 0
+offset_right = 159.0
+offset_bottom = 71.0
+text = "hello"
+script = ExtResource("6_yeyt3")
+
+[node name="ammo" type="Label" parent="CharacterBody3D/pivot/Camera3D/match_ui" unique_id=881149159]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1019.0
+offset_top = 545.0
+offset_right = 1067.0
+offset_bottom = 568.0
+grow_horizontal = 0
+grow_vertical = 0
+offset_transform_enabled = true
+text = "hello2"
+script = ExtResource("7_8cw60")
+
+[node name="TextureRect" type="TextureRect" parent="CharacterBody3D/pivot/Camera3D" unique_id=1436463436]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_5rx0o")
+expand_mode = 1
+
+[node name="weapon_manager" type="Node3D" parent="CharacterBody3D/pivot/Camera3D" unique_id=618107290 node_paths=PackedStringArray("holder")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3211037, -0.36417127, -0.82713914)
+script = ExtResource("7_sgg3w")
+weapons = Dictionary[int, ExtResource("8_8tlpu")]({
+0: ExtResource("9_t0ayd"),
+1: ExtResource("10_8cw60"),
+2: ExtResource("11_oqvtb")
+})
+holder = NodePath(".")
+
+[node name="utility_manager" type="Node3D" parent="CharacterBody3D/pivot/Camera3D" unique_id=440690]
+
+[node name="raycast_holder" type="Node3D" parent="CharacterBody3D/pivot/Camera3D" unique_id=887232691 node_paths=PackedStringArray("interact_ray")]
+unique_name_in_owner = true
+script = ExtResource("13_oqvtb")
+interact_ray = NodePath("interact")
+
+[node name="interact" type="RayCast3D" parent="CharacterBody3D/pivot/Camera3D/raycast_holder" unique_id=2007264967]
+target_position = Vector3(0, 0, -2.5)
+
+[connection signal="hp_update" from="CharacterBody3D" to="CharacterBody3D/pivot/Camera3D/match_ui/health" method="mod_hp_ar"]
+[connection signal="ammo_updated" from="CharacterBody3D/pivot/Camera3D/weapon_manager" to="CharacterBody3D/pivot/Camera3D/match_ui/ammo" method="ammo_update"]

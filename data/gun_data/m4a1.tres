@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="weapon_res" format=3 uid="uid://b4o5sh03sjkvl"]
+
+[ext_resource type="PackedScene" uid="uid://ch036puoyqykb" path="res://scsnes/objects/guns/m_4a_1.tscn" id="1_tip0a"]
+[ext_resource type="Script" uid="uid://01pnncniv4j5" path="res://resourses/weapons_data/weapon_res.gd" id="2_2q6d7"]
+
+[resource]
+script = ExtResource("2_2q6d7")
+weapon_name = "m4a1"
+weapon_id = 3
+model = ExtResource("1_tip0a")
+reload_ani = "reload"
+wea_up = "weapon up"
+fire = "fire"
+is_auto = true
+damage = 50
+armour_pen = 30
+fire_rate = 1.7
+cost = 2000
+max_ammo = 170
+mag = 5
+capacity = 30
+reload_time = 2.3
+metadata/_custom_type_script = "uid://01pnncniv4j5"

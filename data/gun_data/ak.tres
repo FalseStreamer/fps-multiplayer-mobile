@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="weapon_res" format=3 uid="uid://b1jbywg6tfen1"]
+
+[ext_resource type="Script" uid="uid://01pnncniv4j5" path="res://resourses/weapons_data/weapon_res.gd" id="1_irmjp"]
+[ext_resource type="PackedScene" uid="uid://ce3ksxcj6mksl" path="res://scsnes/objects/guns/ak_47.tscn" id="1_vu56h"]
+
+[resource]
+script = ExtResource("1_irmjp")
+weapon_name = "ak"
+weapon_id = 1
+model = ExtResource("1_vu56h")
+reload_ani = "reload"
+wea_up = "weapon up"
+fire = "fire"
+is_auto = true
+damage = 60
+armour_pen = 2
+fire_rate = 7.0
+cost = 2000
+max_ammo = 120
+mag = 4
+capacity = 30
+reload_time = 2.3
+metadata/_custom_type_script = "uid://01pnncniv4j5"

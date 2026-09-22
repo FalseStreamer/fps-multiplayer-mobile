@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bmpw03ia8c3ig"]
+
+[ext_resource type="Script" uid="uid://wh370f1w7gw8" path="res://script/target_spear.gd" id="1_tyeep"]
+[ext_resource type="Texture2D" uid="uid://0477m5kk744m" path="res://textures/texture_01_blue.png" id="2_tyeep"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g7b7a"]
+size = Vector3(1, 0.1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tyeep"]
+albedo_texture = ExtResource("2_tyeep")
+
+[sub_resource type="BoxMesh" id="BoxMesh_8dtch"]
+material = SubResource("StandardMaterial3D_tyeep")
+size = Vector3(1, 0.1, 1)
+
+[node name="target_sphere" type="StaticBody3D" unique_id=326789740 groups=["enemy"]]
+disable_mode = 1
+script = ExtResource("1_tyeep")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1044483082]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 2.509856e-09, -0.011804104)
+shape = SubResource("BoxShape3D_g7b7a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=418912698]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_8dtch")
